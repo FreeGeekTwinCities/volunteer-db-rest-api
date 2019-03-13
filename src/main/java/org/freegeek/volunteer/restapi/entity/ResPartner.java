@@ -1,9 +1,6 @@
 package org.freegeek.volunteer.restapi.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -13,7 +10,8 @@ import java.sql.Timestamp;
 @Entity(name = "res_partner")
 public class ResPartner {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="seq-gen",sequenceName="res_partner_id_seq", initialValue=5000, allocationSize=1)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="seq-gen")
     private Integer id;
     private String name;
     private String lang;

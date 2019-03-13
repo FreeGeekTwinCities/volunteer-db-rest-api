@@ -11,6 +11,6 @@ import java.util.List;
  * Created by tom on 12/22/18.
  */
 @RepositoryRestResource(collectionResourceRel="res_partner", path = "volunteer")
-public interface ResPartnerRepository extends PagingAndSortingRepository<ResPartner, Integer>{
+public interface ResPartnerRepository extends PagingAndSortingRepository<ResPartner, Integer>, ResPartnerSave<ResPartner> {
     List<ResPartner> findByName(@Param("name") String name);
 }
